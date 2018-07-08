@@ -1,0 +1,12 @@
+@charset "UTF-8";
+:host  .progress-container  {
+  display: flex;
+  height: var(--progress-height, 20px);
+  background: var(--progress-background, lightgrey);
+  overflow: hidden;
+  border-radius: 20px; }
+  :host  .progress-container  .progress-bar  {
+    background: var(--progress-color, lightblue);
+    width: calc(var(--current-value, 0) * 100% / var(--max-value, 100)); }
+  :host  .progress-container  .progress-bar-remainder  {
+    flex: 1; }

@@ -1,0 +1,140 @@
+{
+  "components": [
+    {
+      "tag": "nvq-editor",
+      "dependencies": [],
+      "componentClass": "NvqEditor",
+      "componentPath": "components/nvq-editor/nvq-editor.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/nvq-editor/nvq-editor.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "bounds",
+          "type": "String",
+          "attr": "bounds"
+        },
+        {
+          "name": "customOptions",
+          "attr": "custom-options"
+        },
+        {
+          "name": "format",
+          "type": "String",
+          "attr": "format"
+        },
+        {
+          "name": "formats",
+          "attr": "formats"
+        },
+        {
+          "name": "maxLength",
+          "type": "Number",
+          "attr": "max-length"
+        },
+        {
+          "name": "minLength",
+          "type": "Number",
+          "attr": "min-length"
+        },
+        {
+          "name": "modules",
+          "attr": "modules"
+        },
+        {
+          "name": "placeholder",
+          "type": "String",
+          "attr": "placeholder"
+        },
+        {
+          "name": "readOnly",
+          "type": "Boolean",
+          "attr": "read-only"
+        },
+        {
+          "name": "required",
+          "type": "Boolean",
+          "attr": "required"
+        },
+        {
+          "name": "scrollingContainer",
+          "type": "String",
+          "attr": "scrolling-container"
+        },
+        {
+          "name": "strict",
+          "type": "Boolean",
+          "attr": "strict"
+        },
+        {
+          "name": "theme",
+          "type": "String",
+          "mutable": true,
+          "attr": "theme"
+        }
+      ],
+      "events": [
+        {
+          "event": "onContentChanged"
+        },
+        {
+          "event": "onEditorCreated"
+        },
+        {
+          "event": "onSelectionChanged"
+        }
+      ]
+    },
+    {
+      "tag": "nvq-progress-bar",
+      "dependencies": [],
+      "componentClass": "NvqProgressBar",
+      "componentPath": "components/nvq-progress-bar/nvq-progress-bar.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/nvq-progress-bar/nvq-progress-bar.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "max",
+          "type": "Number",
+          "attr": "max"
+        },
+        {
+          "name": "value",
+          "type": "Number",
+          "attr": "value"
+        }
+      ],
+      "hostElement": {
+        "name": "el"
+      },
+      "shadow": true
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.9.11",
+    "typescriptVersion": "2.9.2"
+  },
+  "bundles": [
+    {
+      "components": [
+        "nvq-progress-bar"
+      ]
+    },
+    {
+      "components": [
+        "nvq-editor"
+      ]
+    }
+  ]
+}
