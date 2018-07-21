@@ -90,6 +90,32 @@
       ]
     },
     {
+      "tag": "nvq-label",
+      "dependencies": [],
+      "componentClass": "NvqLabel",
+      "componentPath": "components/nvq-label/nvq-label.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/nvq-label/nvq-label.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "helpText",
+          "type": "String",
+          "attr": "help-text"
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "attr": "text"
+        }
+      ],
+      "shadow": true
+    },
+    {
       "tag": "nvq-progress-bar",
       "dependencies": [],
       "componentClass": "NvqProgressBar",
@@ -134,6 +160,11 @@
     {
       "components": [
         "nvq-editor"
+      ]
+    },
+    {
+      "components": [
+        "nvq-label"
       ]
     }
   ]

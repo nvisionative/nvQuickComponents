@@ -7,7 +7,8 @@ exports.config = {
     ],
     bundles: [
         { components: ['nvq-progress-bar'] },
-        { components: ['nvq-editor'] }
+        { components: ['nvq-editor'] },
+        { components: ['nvq-label'] }
     ],
     plugins: [
         sass()

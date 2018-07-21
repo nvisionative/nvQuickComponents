@@ -93,6 +93,41 @@ declare global {
 declare global {
 
   namespace StencilComponents {
+    interface NvqLabel {
+      'helpText': string;
+      'text': string;
+    }
+  }
+
+  interface HTMLNvqLabelElement extends StencilComponents.NvqLabel, HTMLStencilElement {}
+
+  var HTMLNvqLabelElement: {
+    prototype: HTMLNvqLabelElement;
+    new (): HTMLNvqLabelElement;
+  };
+  interface HTMLElementTagNameMap {
+    'nvq-label': HTMLNvqLabelElement;
+  }
+  interface ElementTagNameMap {
+    'nvq-label': HTMLNvqLabelElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'nvq-label': JSXElements.NvqLabelAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NvqLabelAttributes extends HTMLAttributes {
+      'helpText'?: string;
+      'text'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface NvqProgressBar {
       'max': number;
       'value': number;
