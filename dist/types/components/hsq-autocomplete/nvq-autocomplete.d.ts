@@ -5,7 +5,9 @@ export declare class NvqAutocomplete {
     value: string;
     itemsSource: string;
     items: string[];
+    endpoint: string;
     itemsSourceHandler(newValue: string): void;
-    handleInput(e: any): void;
+    isLocal(): boolean;
+    handleInput(e: any): Promise<void>;
     render(): JSX.Element;
 }
