@@ -32,6 +32,43 @@ import {
 declare global {
 
   namespace StencilComponents {
+    interface NvqAutocomplete {
+      'helpText': string;
+      'itemsSource': string[];
+      'text': string;
+    }
+  }
+
+  interface HTMLNvqAutocompleteElement extends StencilComponents.NvqAutocomplete, HTMLStencilElement {}
+
+  var HTMLNvqAutocompleteElement: {
+    prototype: HTMLNvqAutocompleteElement;
+    new (): HTMLNvqAutocompleteElement;
+  };
+  interface HTMLElementTagNameMap {
+    'nvq-autocomplete': HTMLNvqAutocompleteElement;
+  }
+  interface ElementTagNameMap {
+    'nvq-autocomplete': HTMLNvqAutocompleteElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'nvq-autocomplete': JSXElements.NvqAutocompleteAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NvqAutocompleteAttributes extends HTMLAttributes {
+      'helpText'?: string;
+      'itemsSource'?: string[];
+      'text'?: string;
+    }
+  }
+}
+
+
+declare global {
+
+  namespace StencilComponents {
     interface NvqEditor {
       'bounds': HTMLElement | string;
       'customOptions': CustomOption[];

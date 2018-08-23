@@ -1,6 +1,36 @@
 {
   "components": [
     {
+      "tag": "nvq-autocomplete",
+      "dependencies": [],
+      "componentClass": "NvqAutocomplete",
+      "componentPath": "components/hsq-autocomplete/nvq-autocomplete.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "components/hsq-autocomplete/nvq-autocomplete.scss"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "helpText",
+          "type": "String",
+          "attr": "help-text"
+        },
+        {
+          "name": "itemsSource",
+          "attr": "items-source"
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "attr": "text"
+        }
+      ],
+      "shadow": true
+    },
+    {
       "tag": "nvq-editor",
       "dependencies": [],
       "componentClass": "NvqEditor",
@@ -165,6 +195,11 @@
     {
       "components": [
         "nvq-label"
+      ]
+    },
+    {
+      "components": [
+        "hsq-autocomplete"
       ]
     }
   ]
