@@ -20,7 +20,11 @@
         },
         {
           "name": "itemsSource",
-          "attr": "items-source"
+          "type": "String",
+          "attr": "items-source",
+          "watch": [
+            "itemsSourceHandler"
+          ]
         },
         {
           "name": "text",

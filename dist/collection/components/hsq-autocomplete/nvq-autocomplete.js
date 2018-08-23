@@ -1,19 +1,51 @@
 export class NvqAutocomplete {
+    constructor() {
+        this.items = [];
+    }
+    itemsSourceHandler(newValue) {
+        this.items = newValue.split(",");
+    }
     handleInput(e) {
-        let inputValue = e.target.value;
+        if (this.items === [] || this.items.length == 0) {
+            this.itemsSourceHandler(this.itemsSource);
+        }
         let buildAutoCompleteItem = (name) => {
             let item = document.createElement("div");
             item.innerHTML = "<strong>" + name + "</strong>";
             return item;
         };
-        let test1 = buildAutoCompleteItem("Test 1");
-        let test2 = buildAutoCompleteItem("Andrew");
-        let autocomplete = document.createElement("div");
-        autocomplete.setAttribute("id", "autocomplete-list");
-        autocomplete.setAttribute("class", "autocomplete-items");
-        autocomplete.appendChild(test1);
-        autocomplete.appendChild(test2);
-        e.target.parentNode.appendChild(autocomplete);
+        let createAutoCompleteContainer = (items) => {
+            let autocomplete = document.createElement("div");
+            autocomplete.setAttribute("id", "autocomplete-list");
+            autocomplete.setAttribute("class", "autocomplete-items");
+            for (let autocompleteItem of items) {
+                autocomplete.appendChild(autocompleteItem);
+            }
+            return autocomplete;
+        };
+        let clear = () => {
+            var container = e.target.parentNode.querySelector("#autocomplete-list");
+            if (container != null && container != undefined) {
+                e.target.parentNode.removeChild(container);
+            }
+        };
+        let input = e.target.value;
+        let results = [];
+        if (input === "" || input === undefined) {
+            clear();
+            return;
+        }
+        for (let index in this.items) {
+            if (this.items[index].toLowerCase().includes(input.toLocaleLowerCase())) {
+                let autocompleteItem = buildAutoCompleteItem(this.items[index]);
+                results.push(autocompleteItem);
+            }
+        }
+        clear();
+        if (results.length > 0) {
+            let autocomplete = createAutoCompleteContainer(results);
+            e.target.parentNode.appendChild(autocomplete);
+        }
     }
     render() {
         return (h("div", null,
@@ -30,8 +62,9 @@ export class NvqAutocomplete {
             "attr": "help-text"
         },
         "itemsSource": {
-            "type": "Any",
-            "attr": "items-source"
+            "type": String,
+            "attr": "items-source",
+            "watchCallbacks": ["itemsSourceHandler"]
         },
         "text": {
             "type": String,

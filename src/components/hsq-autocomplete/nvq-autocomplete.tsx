@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Prop, Element, Watch } from '@stencil/core';
 
 @Component({
     tag: 'nvq-autocomplete',
@@ -9,11 +9,20 @@ export class NvqAutocomplete {
 
     @Prop() text: string;
     @Prop() helpText: string;
-    @Prop() itemsSource: string[]
+    @Prop() itemsSource: string;
 
-    handleInput(e) {
-        let inputValue:string = e.target.value;
-             
+    items:string[] = [];
+
+    @Watch('itemsSource')
+    itemsSourceHandler(newValue:string) {
+        this.items = newValue.split(",");
+    }
+
+    handleInput(e) {     
+        if (this.items === [] || this.items.length == 0) {
+            this.itemsSourceHandler(this.itemsSource);
+        }
+
         let buildAutoCompleteItem = (name:string) => {
             let item:HTMLElement = document.createElement("div");
             item.innerHTML = "<strong>" + name + "</strong>";
@@ -21,16 +30,45 @@ export class NvqAutocomplete {
             return item;
         }
 
-        let test1:HTMLElement = buildAutoCompleteItem("Test 1");
-        let test2:HTMLElement = buildAutoCompleteItem("Andrew");
+        let createAutoCompleteContainer = (items:HTMLElement[]) => {
+            let autocomplete:HTMLElement = document.createElement("div");
+            autocomplete.setAttribute("id", "autocomplete-list");
+            autocomplete.setAttribute("class", "autocomplete-items");
 
-        let autocomplete:HTMLElement = document.createElement("div");
-        autocomplete.setAttribute("id", "autocomplete-list");
-        autocomplete.setAttribute("class", "autocomplete-items");
-        autocomplete.appendChild(test1);
-        autocomplete.appendChild(test2);
+            for (let autocompleteItem of items) {
+                autocomplete.appendChild(autocompleteItem);
+            }
+
+            return autocomplete;
+        }   
+
+        let clear = () => {
+            var container = e.target.parentNode.querySelector("#autocomplete-list");
+            if (container != null && container != undefined) {
+                e.target.parentNode.removeChild(container);
+            }            
+        }
+
+        let input:string = e.target.value;
+        let results:HTMLElement[] = [];
+
+        if (input === "" || input === undefined) {
+            clear();
+            return;
+        }
+
+        for (let index in this.items) {
+            if (this.items[index].toLowerCase().includes(input.toLocaleLowerCase())) {
+                let autocompleteItem:HTMLElement = buildAutoCompleteItem(this.items[index]);
+                results.push(autocompleteItem);
+            }
+        }
         
-        e.target.parentNode.appendChild(autocomplete);
+        clear();        
+        if (results.length > 0) {            
+            let autocomplete:HTMLElement = createAutoCompleteContainer(results);
+            e.target.parentNode.appendChild(autocomplete);
+        }
     }
 
     render() {
