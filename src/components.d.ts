@@ -33,9 +33,10 @@ declare global {
 
   namespace StencilComponents {
     interface NvqAutocomplete {
-      'helpText': string;
       'itemsSource': string;
-      'text': string;
+      'name': string;
+      'placeholder': string;
+      'value': string;
     }
   }
 
@@ -58,9 +59,10 @@ declare global {
   }
   namespace JSXElements {
     export interface NvqAutocompleteAttributes extends HTMLAttributes {
-      'helpText'?: string;
       'itemsSource'?: string;
-      'text'?: string;
+      'name'?: string;
+      'placeholder'?: string;
+      'value'?: string;
     }
   }
 }

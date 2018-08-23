@@ -14,11 +14,6 @@
       },
       "props": [
         {
-          "name": "helpText",
-          "type": "String",
-          "attr": "help-text"
-        },
-        {
           "name": "itemsSource",
           "type": "String",
           "attr": "items-source",
@@ -27,9 +22,19 @@
           ]
         },
         {
-          "name": "text",
+          "name": "name",
           "type": "String",
-          "attr": "text"
+          "attr": "name"
+        },
+        {
+          "name": "placeholder",
+          "type": "String",
+          "attr": "placeholder"
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "attr": "value"
         }
       ],
       "shadow": true

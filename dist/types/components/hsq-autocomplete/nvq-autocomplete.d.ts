@@ -1,7 +1,8 @@
 import '../../stencil.core';
 export declare class NvqAutocomplete {
-    text: string;
-    helpText: string;
+    name: string;
+    placeholder: string;
+    value: string;
     itemsSource: string;
     items: string[];
     itemsSourceHandler(newValue: string): void;

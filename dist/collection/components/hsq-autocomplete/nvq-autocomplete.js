@@ -49,26 +49,28 @@ export class NvqAutocomplete {
     }
     render() {
         return (h("div", null,
-            h("form", { autocomplete: "off" },
-                h("div", { class: "autocomplete" },
-                    h("input", { onInput: (e) => this.handleInput(e), id: "myInput", type: "text", name: "myCountry", placeholder: "Country" })),
-                h("input", { type: "submit" }))));
+            h("div", { class: "autocomplete" },
+                h("input", { autocomplete: "off", onInput: (e) => this.handleInput(e), type: "text", name: this.name, placeholder: this.placeholder, value: this.value }))));
     }
     static get is() { return "nvq-autocomplete"; }
     static get encapsulation() { return "shadow"; }
     static get properties() { return {
-        "helpText": {
-            "type": String,
-            "attr": "help-text"
-        },
         "itemsSource": {
             "type": String,
             "attr": "items-source",
             "watchCallbacks": ["itemsSourceHandler"]
         },
-        "text": {
+        "name": {
             "type": String,
-            "attr": "text"
+            "attr": "name"
+        },
+        "placeholder": {
+            "type": String,
+            "attr": "placeholder"
+        },
+        "value": {
+            "type": String,
+            "attr": "value"
         }
     }; }
     static get style() { return "/**style-placeholder:nvq-autocomplete:**/"; }

@@ -6,11 +6,11 @@ import { Component, Prop, Element, Watch } from '@stencil/core';
     shadow: true
 })
 export class NvqAutocomplete {
-
-    @Prop() text: string;
-    @Prop() helpText: string;
+    @Prop() name: string;
+    @Prop() placeholder: string;
+    @Prop() value: string;
     @Prop() itemsSource: string;
-
+    
     items:string[] = [];
 
     @Watch('itemsSource')
@@ -74,12 +74,9 @@ export class NvqAutocomplete {
     render() {
         return (
             <div>
-                <form autocomplete="off">
-                    <div class="autocomplete">
-                        <input onInput={(e) => this.handleInput(e)} id="myInput" type="text" name="myCountry" placeholder="Country" />
-                    </div>
-                    <input type="submit" />
-                </form>
+                <div class="autocomplete">
+                    <input autocomplete="off" onInput={(e) => this.handleInput(e)} type="text" name={this.name} placeholder={this.placeholder} value={this.value} />
+                </div>
             </div>
         );
     }
