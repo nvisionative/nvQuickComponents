@@ -34,6 +34,7 @@ import '../../stencil.core';
 import '../../stencil.core';
 import '../../stencil.core';
 import '../../stencil.core';
+import '../../stencil.core';
 export declare class NvqAutocomplete {
     name: string;
     placeholder: string;
