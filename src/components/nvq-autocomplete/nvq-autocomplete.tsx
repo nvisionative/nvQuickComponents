@@ -56,6 +56,12 @@ export class NvqAutocomplete {
             item = addComponentAttribute(item);
             item.setAttribute("class", "autocomplete-row");
             item.innerHTML = "<strong>" + name + "</strong>";
+            
+            item.addEventListener('click', () => {
+                var control = this.el.querySelector('input');
+                control.value = name;
+                clear();
+            });
 
             return item;
         }
