@@ -1,7 +1,6 @@
 :host .autocomplete {
   position: relative;
-  display: inline-block;
-  width: 700px; }
+  display: inline-block; }
   :host .autocomplete input {
     border: 1px solid transparent;
     background-color: #f1f1f1;

@@ -37,6 +37,7 @@ declare global {
       'name': string;
       'placeholder': string;
       'value': string;
+      'width': string;
     }
   }
 
@@ -63,6 +64,7 @@ declare global {
       'name'?: string;
       'placeholder'?: string;
       'value'?: string;
+      'width'?: string;
     }
   }
 }

@@ -35,8 +35,16 @@
           "name": "value",
           "type": "String",
           "attr": "value"
+        },
+        {
+          "name": "width",
+          "type": "String",
+          "attr": "width"
         }
       ],
+      "hostElement": {
+        "name": "el"
+      },
       "shadow": true
     },
     {

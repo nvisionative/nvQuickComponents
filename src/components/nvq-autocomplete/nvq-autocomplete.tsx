@@ -5,15 +5,20 @@ import { Component, Prop, Element, Watch } from '@stencil/core';
     styleUrl: 'nvq-autocomplete.scss',
     shadow: true
 })
-export class NvqAutocomplete {
+export class NvqAutocomplete {  
+
     @Prop() name: string;
     @Prop() placeholder: string;
     @Prop() value: string;
     @Prop() itemsSource: string;
+    @Prop() width: string;
     
+    @Element() el: HTMLElement;
+
     items:string[] = [];
     endpoint:string = "";
     componentAttribubte:string = "data-nvq-autocomplete";
+    style:{ [key:string]:string } = {};
 
     @Watch('itemsSource')
     itemsSourceHandler(newValue:string) {
@@ -134,10 +139,16 @@ export class NvqAutocomplete {
         }
     }
 
+    updateStyles() {
+        this.style["width"] = this.width;
+    }
+
     render() {
+        this.updateStyles();
+
         return (
             <div>
-                <div class="autocomplete">
+                <div class="autocomplete" style={this.style}>
                     <input autocomplete="off" onInput={async (e) => await this.handleInput(e)} type="text" name={this.name} placeholder={this.placeholder} value={this.value} />
                 </div>
             </div>

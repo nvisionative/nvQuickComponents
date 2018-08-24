@@ -11,6 +11,7 @@ export class NvqAutocomplete {
         this.items = [];
         this.endpoint = "";
         this.componentAttribubte = "data-nvq-autocomplete";
+        this.style = {};
     }
     itemsSourceHandler(newValue) {
         let isURL = (uri) => {
@@ -112,14 +113,21 @@ export class NvqAutocomplete {
             }
         });
     }
+    updateStyles() {
+        this.style["width"] = this.width;
+    }
     render() {
+        this.updateStyles();
         return (h("div", null,
-            h("div", { class: "autocomplete" },
+            h("div", { class: "autocomplete", style: this.style },
                 h("input", { autocomplete: "off", onInput: (e) => __awaiter(this, void 0, void 0, function* () { return yield this.handleInput(e); }), type: "text", name: this.name, placeholder: this.placeholder, value: this.value }))));
     }
     static get is() { return "nvq-autocomplete"; }
     static get encapsulation() { return "shadow"; }
     static get properties() { return {
+        "el": {
+            "elementRef": true
+        },
         "itemsSource": {
             "type": String,
             "attr": "items-source",
@@ -136,6 +144,10 @@ export class NvqAutocomplete {
         "value": {
             "type": String,
             "attr": "value"
+        },
+        "width": {
+            "type": String,
+            "attr": "width"
         }
     }; }
     static get style() { return "/**style-placeholder:nvq-autocomplete:**/"; }
