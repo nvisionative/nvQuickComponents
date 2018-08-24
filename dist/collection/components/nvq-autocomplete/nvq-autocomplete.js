@@ -72,8 +72,13 @@ export class NvqAutocomplete {
             };
             let getRemoteResults = (input, callback) => {
                 getRequest(input).then((json) => {
-                    let rawData = json.split(",");
-                    callback(rawData);
+                    if (json) {
+                        let rawData = json.split(",");
+                        callback(rawData);
+                    }
+                    else {
+                        clear();
+                    }
                 });
             };
             let clear = () => {
