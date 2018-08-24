@@ -58,8 +58,7 @@ export class NvqAutocomplete {
             item.innerHTML = "<strong>" + name + "</strong>";
             
             item.addEventListener('click', () => {
-                var control = this.el.querySelector('input');
-                control.value = name;
+                target.value = name;
                 clear();
             });
 
@@ -155,7 +154,7 @@ export class NvqAutocomplete {
         return (
             <div>
                 <div class="autocomplete" style={this.style}>
-                    <input autocomplete="off" onInput={async (e) => await this.handleInput(e)} type="text" name={this.name} placeholder={this.placeholder} value={this.value} />
+                    <input autocomplete="off" onInput={async (e) => await this.handleInput(e)} type="search" name={this.name} placeholder={this.placeholder} value={this.value} />
                 </div>
             </div>
         );

@@ -45,8 +45,7 @@ export class NvqAutocomplete {
                 item.setAttribute("class", "autocomplete-row");
                 item.innerHTML = "<strong>" + name + "</strong>";
                 item.addEventListener('click', () => {
-                    var control = this.el.querySelector('input');
-                    control.value = name;
+                    target.value = name;
                     clear();
                 });
                 return item;
@@ -125,7 +124,7 @@ export class NvqAutocomplete {
         this.updateStyles();
         return (h("div", null,
             h("div", { class: "autocomplete", style: this.style },
-                h("input", { autocomplete: "off", onInput: (e) => __awaiter(this, void 0, void 0, function* () { return yield this.handleInput(e); }), type: "text", name: this.name, placeholder: this.placeholder, value: this.value }))));
+                h("input", { autocomplete: "off", onInput: (e) => __awaiter(this, void 0, void 0, function* () { return yield this.handleInput(e); }), type: "search", name: this.name, placeholder: this.placeholder, value: this.value }))));
     }
     static get is() { return "nvq-autocomplete"; }
     static get encapsulation() { return "shadow"; }
