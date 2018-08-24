@@ -13,6 +13,7 @@ export class NvqAutocomplete {
     
     items:string[] = [];
     endpoint:string = "";
+    componentAttribubte:string = "data-nvq-autocomplete";
 
     @Watch('itemsSource')
     itemsSourceHandler(newValue:string) {
@@ -40,8 +41,15 @@ export class NvqAutocomplete {
             this.itemsSourceHandler(this.itemsSource);
         }
 
+        let addComponentAttribute = (element:HTMLElement) => {
+            element.setAttribute(this.componentAttribubte, "");
+            return element;
+        }
+
         let buildAutoCompleteItem = (name:string) => {
             let item:HTMLElement = document.createElement("div");
+            item = addComponentAttribute(item);
+            item.setAttribute("class", "autocomplete-row");
             item.innerHTML = "<strong>" + name + "</strong>";
 
             return item;
@@ -49,6 +57,7 @@ export class NvqAutocomplete {
 
         let createAutoCompleteContainer = (items:HTMLElement[]) => {
             let autocomplete:HTMLElement = document.createElement("div");
+            autocomplete = addComponentAttribute(autocomplete);
             autocomplete.setAttribute("id", "autocomplete-list");
             autocomplete.setAttribute("class", "autocomplete-items");
 
