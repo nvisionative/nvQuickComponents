@@ -10,7 +10,6 @@ export class NvqAutocomplete {
     constructor() {
         this.items = [];
         this.endpoint = "";
-        this.componentAttribubte = "data-nvq-autocomplete";
         this.style = {};
     }
     itemsSourceHandler(newValue) {
@@ -35,13 +34,8 @@ export class NvqAutocomplete {
             if (this.items === [] || this.items.length == 0) {
                 this.itemsSourceHandler(this.itemsSource);
             }
-            let addComponentAttribute = (element) => {
-                element.setAttribute(this.componentAttribubte, "");
-                return element;
-            };
             let buildAutoCompleteItem = (name) => {
                 let item = document.createElement("div");
-                item = addComponentAttribute(item);
                 item.setAttribute("class", "autocomplete-row");
                 item.innerHTML = "<strong>" + name + "</strong>";
                 item.addEventListener('click', () => {
@@ -52,7 +46,6 @@ export class NvqAutocomplete {
             };
             let createAutoCompleteContainer = (items) => {
                 let autocomplete = document.createElement("div");
-                autocomplete = addComponentAttribute(autocomplete);
                 autocomplete.setAttribute("id", "autocomplete-list");
                 autocomplete.setAttribute("class", "autocomplete-items");
                 for (let autocompleteItem of items) {
@@ -127,7 +120,6 @@ export class NvqAutocomplete {
                 h("input", { autocomplete: "off", onInput: (e) => __awaiter(this, void 0, void 0, function* () { return yield this.handleInput(e); }), type: "search", name: this.name, placeholder: this.placeholder, value: this.value }))));
     }
     static get is() { return "nvq-autocomplete"; }
-    static get encapsulation() { return "shadow"; }
     static get properties() { return {
         "el": {
             "elementRef": true

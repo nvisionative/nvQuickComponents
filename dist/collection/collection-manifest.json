@@ -44,8 +44,7 @@
       ],
       "hostElement": {
         "name": "el"
-      },
-      "shadow": true
+      }
     },
     {
       "tag": "nvq-editor",

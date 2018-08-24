@@ -8,7 +8,6 @@ export declare class NvqAutocomplete {
     el: HTMLElement;
     items: string[];
     endpoint: string;
-    componentAttribubte: string;
     style: {
         [key: string]: string;
     };

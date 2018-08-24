@@ -3,7 +3,7 @@ import { Component, Prop, Element, Watch } from '@stencil/core';
 @Component({
     tag: 'nvq-autocomplete',
     styleUrl: 'nvq-autocomplete.scss',
-    shadow: true
+    shadow: false
 })
 export class NvqAutocomplete {  
 
@@ -17,7 +17,6 @@ export class NvqAutocomplete {
 
     items:string[] = [];
     endpoint:string = "";
-    componentAttribubte:string = "data-nvq-autocomplete";
     style:{ [key:string]:string } = {};
 
     @Watch('itemsSource')
@@ -46,14 +45,8 @@ export class NvqAutocomplete {
             this.itemsSourceHandler(this.itemsSource);
         }
 
-        let addComponentAttribute = (element:HTMLElement) => {
-            element.setAttribute(this.componentAttribubte, "");
-            return element;
-        }
-
         let buildAutoCompleteItem = (name:string) => {
             let item:HTMLElement = document.createElement("div");
-            item = addComponentAttribute(item);
             item.setAttribute("class", "autocomplete-row");
             item.innerHTML = "<strong>" + name + "</strong>";
             
@@ -67,7 +60,6 @@ export class NvqAutocomplete {
 
         let createAutoCompleteContainer = (items:HTMLElement[]) => {
             let autocomplete:HTMLElement = document.createElement("div");
-            autocomplete = addComponentAttribute(autocomplete);
             autocomplete.setAttribute("id", "autocomplete-list");
             autocomplete.setAttribute("class", "autocomplete-items");
 
