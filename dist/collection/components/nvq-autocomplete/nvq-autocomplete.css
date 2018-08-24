@@ -1,0 +1,32 @@
+:host .autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+  width: 300px; }
+  :host .autocomplete input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px; }
+  :host .autocomplete input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%; }
+  :host .autocomplete input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer; }
+  :host .autocomplete .autocomplete-items {
+    position: absolute;
+    z-index: 100;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: red; }
+    :host .autocomplete .autocomplete-items .autocomplete-row {
+      padding: 1em;
+      border: solid 1px #d4d4d4; }
+    :host .autocomplete .autocomplete-items .autocomplete-row:hover {
+      background-color: #e9e9e9; }
+
+:host .autocomplete-items {
+  background-color: pink; }

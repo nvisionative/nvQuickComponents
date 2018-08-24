@@ -10,6 +10,7 @@ export class NvqAutocomplete {
     constructor() {
         this.items = [];
         this.endpoint = "";
+        this.componentAttribubte = "data-nvq-autocomplete";
     }
     itemsSourceHandler(newValue) {
         let isURL = (uri) => {
@@ -33,13 +34,20 @@ export class NvqAutocomplete {
             if (this.items === [] || this.items.length == 0) {
                 this.itemsSourceHandler(this.itemsSource);
             }
+            let addComponentAttribute = (element) => {
+                element.setAttribute(this.componentAttribubte, "");
+                return element;
+            };
             let buildAutoCompleteItem = (name) => {
                 let item = document.createElement("div");
+                item = addComponentAttribute(item);
+                item.setAttribute("class", "autocomplete-row");
                 item.innerHTML = "<strong>" + name + "</strong>";
                 return item;
             };
             let createAutoCompleteContainer = (items) => {
                 let autocomplete = document.createElement("div");
+                autocomplete = addComponentAttribute(autocomplete);
                 autocomplete.setAttribute("id", "autocomplete-list");
                 autocomplete.setAttribute("class", "autocomplete-items");
                 for (let autocompleteItem of items) {

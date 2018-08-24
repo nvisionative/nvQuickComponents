@@ -4,11 +4,11 @@
       "tag": "nvq-autocomplete",
       "dependencies": [],
       "componentClass": "NvqAutocomplete",
-      "componentPath": "components/hsq-autocomplete/nvq-autocomplete.js",
+      "componentPath": "components/nvq-autocomplete/nvq-autocomplete.js",
       "styles": {
         "$": {
           "stylePaths": [
-            "components/hsq-autocomplete/nvq-autocomplete.scss"
+            "components/nvq-autocomplete/nvq-autocomplete.scss"
           ]
         }
       },
@@ -208,7 +208,7 @@
     },
     {
       "components": [
-        "hsq-autocomplete"
+        "nvq-autocomplete"
       ]
     }
   ]

@@ -9,7 +9,7 @@ exports.config = {
         { components: ['nvq-progress-bar'] },
         { components: ['nvq-editor'] },
         { components: ['nvq-label'] } ,
-        { components: ['hsq-autocomplete'] }
+        { components: ['nvq-autocomplete'] }
     ],
     plugins: [
         sass()
