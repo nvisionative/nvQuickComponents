@@ -8,17 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 export class NvqAutocomplete {
     constructor() {
+        this.remote = false;
         this.items = [];
         this.endpoint = "";
         this.style = {};
     }
     itemsSourceHandler(newValue) {
-        let isURL = (uri) => {
-            let anchor = document.createElement("a");
-            anchor.href = uri;
-            return anchor.host && anchor.host != window.location.host;
-        };
-        if (isURL(newValue)) {
+        if (this.remote) {
             this.endpoint = newValue;
         }
         else {
@@ -141,6 +137,10 @@ export class NvqAutocomplete {
         "placeholder": {
             "type": String,
             "attr": "placeholder"
+        },
+        "remote": {
+            "type": Boolean,
+            "attr": "remote"
         },
         "value": {
             "type": String,

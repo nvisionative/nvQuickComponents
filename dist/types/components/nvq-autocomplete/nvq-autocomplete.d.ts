@@ -5,6 +5,7 @@ export declare class NvqAutocomplete {
     value: string;
     itemsSource: string;
     width: string;
+    remote: boolean;
     el: HTMLElement;
     items: string[];
     endpoint: string;

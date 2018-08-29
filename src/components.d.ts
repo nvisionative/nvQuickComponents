@@ -36,6 +36,7 @@ declare global {
       'itemsSource': string;
       'name': string;
       'placeholder': string;
+      'remote': boolean;
       'value': string;
       'width': string;
     }
@@ -63,6 +64,7 @@ declare global {
       'itemsSource'?: string;
       'name'?: string;
       'placeholder'?: string;
+      'remote'?: boolean;
       'value'?: string;
       'width'?: string;
     }

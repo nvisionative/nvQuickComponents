@@ -12,6 +12,7 @@ export class NvqAutocomplete {
     @Prop() value: string;
     @Prop() itemsSource: string;
     @Prop() width: string;
+    @Prop() remote:boolean = false;
     
     @Element() el: HTMLElement;
 
@@ -21,14 +22,7 @@ export class NvqAutocomplete {
 
     @Watch('itemsSource')
     itemsSourceHandler(newValue:string) {
-        let isURL = (uri:string) => {
-            let anchor:HTMLAnchorElement = document.createElement("a");
-            anchor.href = uri;
-
-            return anchor.host && anchor.host != window.location.host;
-        }
-
-        if (isURL(newValue)) {
+        if (this.remote) {
             this.endpoint = newValue;
         } else {
             this.items = newValue.split(",");

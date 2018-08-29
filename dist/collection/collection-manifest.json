@@ -32,6 +32,11 @@
           "attr": "placeholder"
         },
         {
+          "name": "remote",
+          "type": "Boolean",
+          "attr": "remote"
+        },
+        {
           "name": "value",
           "type": "String",
           "attr": "value"
