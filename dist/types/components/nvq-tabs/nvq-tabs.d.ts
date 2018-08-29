@@ -1,3 +1,4 @@
+import '../../stencil.core';
 export declare class NvqPagination {
     el: HTMLElement;
     componentDidLoad(): void;

@@ -1,7 +1,7 @@
-pa-tabs .tabs {
+nvq-tabs .tabs {
   display: flex;
   flex-wrap: wrap; }
-  pa-tabs .tabs > .tab {
+  nvq-tabs .tabs > .tab {
     order: 1;
     margin-right: .25em;
     cursor: pointer;
@@ -14,7 +14,7 @@ pa-tabs .tabs {
     color: #000;
     font-weight: bold;
     z-index: 2; }
-    pa-tabs .tabs > .tab:last-of-type {
+    nvq-tabs .tabs > .tab:last-of-type {
       order: 0;
       background-color: #f3f3f3;
       border-radius: 2px;
@@ -22,7 +22,7 @@ pa-tabs .tabs {
       border-bottom-right-radius: 0;
       border: solid 1px #dedede;
       border-bottom: none; }
-  pa-tabs .tabs > article {
+  nvq-tabs .tabs > article {
     display: none;
     order: 3;
     border-top: solid 1px #dedede;
@@ -30,17 +30,17 @@ pa-tabs .tabs {
     position: relative;
     top: -200px;
     padding-top: 200px; }
-    pa-tabs .tabs > article:last-of-type {
+    nvq-tabs .tabs > article:last-of-type {
       display: block; }
-    pa-tabs .tabs > article:target {
+    nvq-tabs .tabs > article:target {
       display: flex;
       overflow: auto; }
-      pa-tabs .tabs > article:target ~ article {
+      nvq-tabs .tabs > article:target ~ article {
         display: none; }
-      pa-tabs .tabs > article:target ~ .tab {
+      nvq-tabs .tabs > article:target ~ .tab {
         background-color: #fff;
         border: none; }
-      pa-tabs .tabs > article:target + .tab {
+      nvq-tabs .tabs > article:target + .tab {
         background-color: #f3f3f3;
         border-radius: 2px;
         border-bottom-left-radius: 0;
