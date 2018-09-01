@@ -12,7 +12,7 @@ export class NvqLabel {
 
     render() {
         return (
-            <div>    
+            <div>
                 <div class="tooltip">
                     { this.text }
                     <span class="tooltiptext">
