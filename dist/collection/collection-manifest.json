@@ -143,22 +143,6 @@
         "name": "el"
       },
       "shadow": true
-    },
-    {
-      "tag": "nvq-tabs",
-      "dependencies": [],
-      "componentClass": "NvqPagination",
-      "componentPath": "components/nvq-tabs/nvq-tabs.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "components/nvq-tabs/nvq-tabs.scss"
-          ]
-        }
-      },
-      "hostElement": {
-        "name": "el"
-      }
     }
   ],
   "collections": [],
@@ -181,11 +165,6 @@
     {
       "components": [
         "nvq-label"
-      ]
-    },
-    {
-      "components": [
-        "nvq-tabs"
       ]
     }
   ]

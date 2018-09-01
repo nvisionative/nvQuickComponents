@@ -5,5 +5,3 @@ export var NvqEditor = ["nvq-editor",function(){return(import("./qnr7pzqm.js")).
 export var NvqLabel = ["nvq-label",function(){return(import("./rjhkqpzb.js")).then(function(m){return m.NvqLabel})},1,[["helpText",1,0,"help-text",2],["text",1,0,1,2]],1];
 
 export var NvqProgressBar = ["nvq-progress-bar",function(){return(import("./exsnvyyt.js")).then(function(m){return m.NvqProgressBar})},1,[["el",7],["max",1,0,1,4],["value",1,0,1,4]],1];
-
-export var NvqPagination = ["nvq-tabs",function(){return(import("./ywox3s4j.js")).then(function(m){return m.NvqTabs})},1,[["el",7]]];
