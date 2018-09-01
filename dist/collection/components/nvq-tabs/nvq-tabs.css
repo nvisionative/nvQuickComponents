@@ -1,0 +1,49 @@
+nvq-tabs .tabs {
+  display: flex;
+  flex-wrap: wrap; }
+  nvq-tabs .tabs > .tab {
+    order: 1;
+    margin-right: .25em;
+    cursor: pointer;
+    padding: 1em;
+    padding-bottom: 1em;
+    border-bottom: none;
+    background-color: #fff;
+    margin: 0;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    z-index: 2; }
+    nvq-tabs .tabs > .tab:last-of-type {
+      order: 0;
+      background-color: #f3f3f3;
+      border-radius: 2px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border: solid 1px #dedede;
+      border-bottom: none; }
+  nvq-tabs .tabs > article {
+    display: none;
+    order: 3;
+    border-top: solid 1px #dedede;
+    padding: 1em;
+    position: relative;
+    top: -200px;
+    padding-top: 200px; }
+    nvq-tabs .tabs > article:last-of-type {
+      display: block; }
+    nvq-tabs .tabs > article:target {
+      display: flex;
+      overflow: auto; }
+      nvq-tabs .tabs > article:target ~ article {
+        display: none; }
+      nvq-tabs .tabs > article:target ~ .tab {
+        background-color: #fff;
+        border: none; }
+      nvq-tabs .tabs > article:target + .tab {
+        background-color: #f3f3f3;
+        border-radius: 2px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border: solid 1px #dedede;
+        border-bottom: none; }

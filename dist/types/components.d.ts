@@ -159,6 +159,39 @@ declare global {
   }
 }
 
+
+declare global {
+
+  namespace StencilComponents {
+    interface NvqTabs {
+
+    }
+  }
+
+  interface HTMLNvqTabsElement extends StencilComponents.NvqTabs, HTMLStencilElement {}
+
+  var HTMLNvqTabsElement: {
+    prototype: HTMLNvqTabsElement;
+    new (): HTMLNvqTabsElement;
+  };
+  interface HTMLElementTagNameMap {
+    'nvq-tabs': HTMLNvqTabsElement;
+  }
+  interface ElementTagNameMap {
+    'nvq-tabs': HTMLNvqTabsElement;
+  }
+  namespace JSX {
+    interface IntrinsicElements {
+      'nvq-tabs': JSXElements.NvqTabsAttributes;
+    }
+  }
+  namespace JSXElements {
+    export interface NvqTabsAttributes extends HTMLAttributes {
+
+    }
+  }
+}
+
 declare global { namespace JSX { interface StencilJSX {} } }
 
 export declare function defineCustomElements(window: any): void;
