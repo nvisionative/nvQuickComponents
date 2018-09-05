@@ -79,17 +79,15 @@ export class NvqAutocomplete {
         let getRequest = (query:string) => {
             let uri:string = this.endpoint + query;
             var promise = fetch(uri)
-                .then((response) => response.json())
-                .then((json) => json.toString());
+                .then((response) => response.json());
 
             return promise;
         }
 
         let getRemoteResults = (input:string, callback: (newData:string[]) => any) => {
-            getRequest(input).then((json) => {
-                if (json) {
-                    let rawData:string[] = json.split(",");
-                    callback(rawData);
+            getRequest(input).then((response) => {
+                if (response) {
+                    callback(response);
                 } else {
                     clear();
                 }                
