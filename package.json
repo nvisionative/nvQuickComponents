@@ -1,33 +1,38 @@
 {
   "name": "@nvisionative/nvq-components",
   "version": "0.0.3",
-  "description": "",
-  "module": "dist/esm/index.js",
-  "main": "dist/index.js",
-  "types": "dist/types/components.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "files": [
-    "dist/"
-  ],
-  "scripts": {
-    "build": "stencil build",
-    "start": "stencil-dev-server --root ./",
-    "prepublish": "npm run build"
-  },
+  "description": "Collection of web components",
   "keywords": [],
   "author": "nvisionative",
   "license": "GPL-3.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/nvq-components/nvq-components.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
   "dependencies": {
-    "@stencil/core": "0.9.11",
-    "@stencil/dev-server": "0.0.18",
     "@types/quill": "^1.3.7",
     "quill": "^1.3.6",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
   },
   "devDependencies": {
-    "@stencil/sass": "0.0.5",
-    "@stencil/utils": "0.0.4",
-    "serve": "^9.0.0"
+    "@stencil/core": "^1.3.2",
+    "@stencil/sass": "^1.0.1",
+    "@stencil/utils": "0.0.5"
   }
 }

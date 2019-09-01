@@ -1,4 +1,4 @@
-import { Component, Prop, Element, Watch } from '@stencil/core';
+import { Component, Prop, Element, Watch, h } from '@stencil/core';
 
 @Component({
     tag: 'nvq-autocomplete',

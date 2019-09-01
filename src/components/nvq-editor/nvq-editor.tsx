@@ -1,4 +1,4 @@
-import { Component, Prop, State, Event, EventEmitter, Method } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, h} from '@stencil/core';
 import Quill from 'quill';
 //import * as QuillNamespace from 'quill';
 
@@ -103,7 +103,7 @@ export class NvqEditor {
             strict: this.strict
         };
         console.log(options);
-        let editor = new quill('#nvq-editor', options);
+        new quill('#nvq-editor', options);
     }
 
     init(): Promise<any> {
