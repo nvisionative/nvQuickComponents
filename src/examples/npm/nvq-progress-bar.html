@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>nvQuickProgressBar Demo</title>
+        <script src="https://unpkg.com/@nvisionative/nvq-components@0.0.3/dist/nvq-components.js"></script>
+    </head>
+    <body>
+        <h1>nvQuickProgressBar Demo</h1>
+        <nvq-progress-bar value="40"></nvq-progress-bar>
+        <div>&nbsp;</div>
+        <nvq-progress-bar class="styled" value="2" max="5"></nvq-progress-bar>
+        <style>
+            nvq-progress-bar.styled {
+                --progress-color: red;
+            }
+        </style>
+    </body>
+</html>

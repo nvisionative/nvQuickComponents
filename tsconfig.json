@@ -4,15 +4,22 @@
         "allowUnreachableCode": false,
         "declaration": false,
         "experimentalDecorators": true,
-        "lib": ["dom", "es2015"],
+        "lib": [
+            "dom", 
+            "es2017",
+            "esnext.asynciterable"
+        ],
         "moduleResolution": "node",
-        "module": "es2015",
-        "target": "es2015",
-        "noUnusedLocals": false,
+        "module": "esnext",
+        "target": "es2017",
+        "noUnusedLocals": true,
         "noUnusedParameters": true,
         "jsx": "react",
         "jsxFactory": "h"
     },
-    "include": ["src"],
+    "include": [
+        "src",
+        "types/jsx.d.ts"
+    ],
     "exclude": ["node_modules"]
 }

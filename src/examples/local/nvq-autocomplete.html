@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>nvQuickAutoComplete Demo</title>
+        <script type="module" src="../../build/nvq-components.esm.js"></script>
+        <script nomodule src="../../build/nvq-components.js"></script>
+    </head>
+    <body>
+        <h1>nvqAutoComplete Demo</h1>
+        <h2>Local items source</h2>
+        <nvq-autocomplete name="country" placeholder="My starter value" value="sample" width="300px" items-source="test, andrew, john, dave, dnn, dnncms, net, c#"></nvq-autocomplete>
+        <h2>Remote items source</h2>
+        <p>The remote items-source makes a few assumptions:</p>
+        <ul>
+            <li>the search request is passed in as "http://localhost:53461/search/autocomplete/mydata" where "mydata" is the input typed</li>
+            <li>The response is just an array of JSON data</li>
+        </ul>
+        <nvq-autocomplete name="country" placeholder="My starter value" width="800px" remote="true" items-source="http://localhost:53461/search/autocomplete/"></nvq-autocomplete>
+    </body>
+</html>
