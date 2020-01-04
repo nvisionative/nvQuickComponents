@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>nvQuickAutoComplete Demo</title>
-        <script src="https://unpkg.com/@nvisionative/nvq-components@0.0.3/dist/nvq-components.js"></script>
+        <script type="module" src="https://unpkg.com/@nvisionative/nvq-components@0.0.4/dist/nvq-components/nvq-components.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/@nvisionative/nvq-components@0.0.4/dist/nvq-components/nvq-components.js"></script>
     </head>
     <body>
         <h1>nvqAutoComplete Demo</h1>
-        <p>This is not published to npm, once we do that we should uncomment the code</p>
-        <!-- <h2>Local items source</h2>
+        <h2>Local items source</h2>
         <nvq-autocomplete name="country" placeholder="My starter value" value="sample" width="300px" items-source="test, andrew, john, dave, dnn, dnncms, net, c#"></nvq-autocomplete>
         <h2>Remote items source</h2>
         <p>The remote items-source makes a few assumptions:</p>
@@ -18,6 +18,6 @@
             <li>the search request is passed in as "http://localhost:53461/search/autocomplete/mydata" where "mydata" is the input typed</li>
             <li>The response is just an array of JSON data</li>
         </ul>
-        <nvq-autocomplete name="country" placeholder="My starter value" width="800px" items-source="http://localhost:53461/search/autocomplete/"></nvq-autocomplete> -->
+        <nvq-autocomplete name="country" placeholder="My starter value" width="800px" items-source="http://localhost:53461/search/autocomplete/"></nvq-autocomplete>
     </body>
 </html>
