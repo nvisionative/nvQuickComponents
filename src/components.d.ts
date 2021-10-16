@@ -17,17 +17,22 @@ export namespace Components {
     }
     interface NvqEditor {
         "bounds": HTMLElement | string;
+        "content": string;
         "customOptions": CustomOption[];
-        "format": 'object' | 'html' | 'text';
+        "customToolbarPosition": 'top' | 'bottom';
+        "debug": string;
+        "format": 'html' | 'text' | 'json';
         "formats": string[];
         "maxLength": number;
         "minLength": number;
         "modules": { [index: string]: Object };
         "placeholder": string;
+        "preserveWhitespace": boolean;
         "readOnly": boolean;
         "required": boolean;
         "scrollingContainer": HTMLElement | string;
         "strict": boolean;
+        "styles": string;
         "theme": string;
     }
     interface NvqLabel {
@@ -82,8 +87,11 @@ declare namespace LocalJSX {
     }
     interface NvqEditor {
         "bounds"?: HTMLElement | string;
+        "content"?: string;
         "customOptions"?: CustomOption[];
-        "format"?: 'object' | 'html' | 'text';
+        "customToolbarPosition"?: 'top' | 'bottom';
+        "debug"?: string;
+        "format"?: 'html' | 'text' | 'json';
         "formats"?: string[];
         "maxLength"?: number;
         "minLength"?: number;
@@ -92,10 +100,12 @@ declare namespace LocalJSX {
         "onEditorCreated"?: (event: CustomEvent<any>) => void;
         "onSelectionChanged"?: (event: CustomEvent<any>) => void;
         "placeholder"?: string;
+        "preserveWhitespace"?: boolean;
         "readOnly"?: boolean;
         "required"?: boolean;
         "scrollingContainer"?: HTMLElement | string;
         "strict"?: boolean;
+        "styles"?: string;
         "theme"?: string;
     }
     interface NvqLabel {
