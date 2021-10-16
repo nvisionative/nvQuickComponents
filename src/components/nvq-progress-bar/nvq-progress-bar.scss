@@ -7,7 +7,7 @@
         border-radius: 20px;
         .progress-bar {
             background: var(--progress-color, lightblue);
-            width: calc(var(--current-value, 0) * 100% / var(--max-value, 100));
+            width: calc(var(--current-value, 0) * 100% / var(--max-value, 100));
         }
         .progress-bar-remainder {
             flex: 1;
