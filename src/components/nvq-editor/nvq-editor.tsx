@@ -1,4 +1,4 @@
-import { Component, Prop, Event, EventEmitter, h} from '@stencil/core';
+import { Component, ComponentDidLoad, Element, Event, EventEmitter, h, Prop, Watch, Host } from '@stencil/core';
 import Quill from 'quill';
 //import * as QuillNamespace from 'quill';
 
@@ -12,12 +12,17 @@ export interface CustomOption {
     styleUrl: 'nvq-editor.scss',
     shadow: false
 })
-export class NvqEditor {
+export class NvqEditor implements ComponentDidLoad {
 
     emptyArray: any[] = [];
     
-    @Prop() format: 'object' | 'html' | 'text' = 'html';
-    @Prop({ mutable: true }) theme: string = 'snow'; // default theme to "snow", but make sure the theme can be changed in case user enters invalid theme name
+    @Prop() bounds: HTMLElement | string;
+    @Prop() content: string;
+    @Prop() customOptions: CustomOption[] = [];
+    @Prop() customToolbarPosition: 'top' | 'bottom' = 'top';
+    @Prop() debug: string = 'warn';
+    @Prop() format: 'html' | 'text' | 'json' = 'html';
+    @Prop() formats: string[];
     @Prop() modules: { [index: string]: Object } = { 
         toolbar: [
             ['bold', 'italic', 'underline', 'strike'], 
@@ -30,29 +35,28 @@ export class NvqEditor {
             [{ direction: 'rtl' }], // text direction
             [{ size: ['small', false, 'large', 'huge'] }], // custom dropdown
             [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      
+            
             [
-              { color: this.emptyArray.slice() },
-              { background: this.emptyArray.slice() }
+                { color: this.emptyArray.slice() },
+                { background: this.emptyArray.slice() }
             ], // dropdown with defaults from theme
             [{ font: this.emptyArray.slice() }],
             [{ align: this.emptyArray.slice() }],
-      
+            
             ['clean'], // remove formatting button
             ['link', 'image', 'video'] // link and image, video
         ] 
     };
+    @Prop() placeholder: string = 'Enter some really cool content...';
     @Prop() readOnly: boolean;
-    @Prop() placeholder: string;
+    @Prop() scrollingContainer: HTMLElement | string;
+    @Prop() strict: boolean = true;
     @Prop() maxLength: number;
     @Prop() minLength: number;
+    @Prop() preserveWhitespace: boolean = false;
     @Prop() required: boolean;
-    @Prop() formats: string[];
-    /*@Prop() style: any = {};*/
-    @Prop() strict: boolean = true;
-    @Prop() scrollingContainer: HTMLElement | string;
-    @Prop() bounds: HTMLElement | string;
-    @Prop() customOptions: CustomOption[] = [];
+    @Prop() styles: string = '{}';
+    @Prop({ mutable: true }) theme: string = 'snow'; // default theme to "snow", but make sure the theme can be changed in case user enters invalid theme name
 
     @Event() editorCreated: EventEmitter;
     @Event() contentChanged: EventEmitter;
@@ -92,15 +96,18 @@ export class NvqEditor {
         //let Quill: any = QuillNamespace;
 
         let options = {
-            theme: this.theme,
-            modules: this.modules,
-            readOnly: this.readOnly,
-            placeholder: this.placeholder,
+            bounds: this.bounds ? (this.bounds === 'self' ? '#nvq-editor' : this.bounds) : document.body,
+            debug: this.debug,
+            formats: this.formats,
             maxLength: this.maxLength,
             minLength: this.minLength,
+            modules: this.modules,
+            placeholder: this.placeholder,
+            readOnly: this.readOnly || false,
             required: this.required,
-            formats: this.formats,
-            strict: this.strict
+            scrollingContainer: this.scrollingContainer,
+            strict: this.strict,
+            theme: this.theme || 'snow',
         };
         console.log(options);
         new quill('#nvq-editor', options);
@@ -127,13 +134,13 @@ export class NvqEditor {
             // load Quill theme based on theme @Prop
             if(this.theme === 'bubble') {
                 let loadQuillCss = document.createElement('link');
-                loadQuillCss.href = 'https://cdn.quilljs.com/1.3.6/quill.bubble.css';
+                loadQuillCss.href = 'https://cdn.quilljs.com/1.3.7/quill.bubble.css';
                 loadQuillCss.rel = "stylesheet";
                 document.body.appendChild(loadQuillCss);    
             } else {
                 this.theme = 'snow';
                 let loadQuillCss = document.createElement('link');
-                loadQuillCss.href = 'https://cdn.quilljs.com/1.3.6/quill.snow.css';
+                loadQuillCss.href = 'https://cdn.quilljs.com/1.3.7/quill.snow.css';
                 loadQuillCss.rel = "stylesheet";
                 document.body.appendChild(loadQuillCss);
             }
