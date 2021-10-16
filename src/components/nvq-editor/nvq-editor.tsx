@@ -54,9 +54,9 @@ export class NvqEditor {
     @Prop() bounds: HTMLElement | string;
     @Prop() customOptions: CustomOption[] = [];
 
-    @Event() onEditorCreated: EventEmitter;
-    @Event() onContentChanged: EventEmitter;
-    @Event() onSelectionChanged: EventEmitter;
+    @Event() editorCreated: EventEmitter;
+    @Event() contentChanged: EventEmitter;
+    @Event() selectionChanged: EventEmitter;
 
     /*@State() available : boolean = false;*/
 
