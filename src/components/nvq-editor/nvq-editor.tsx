@@ -62,12 +62,51 @@ export class NvqEditor implements ComponentDidLoad {
     @Event() contentChanged: EventEmitter;
     @Event() selectionChanged: EventEmitter;
 
-    /*@State() available : boolean = false;*/
+    @Event() editorInit: EventEmitter<any>;
+    @Event() editorChange: EventEmitter<
+        |   {
+                editor: any;
+                event: 'text-change';
+                content: any;
+                text: string;
+                html: string;
+                delta: any;
+                oldDelta: any;
+                source: string;
+            }
+        |   {
+                editor: any;
+                event: 'selection-change';
+                range: any;
+                oldRange: any;
+                source: string;
+            }
+    >;
+    @Event() editorContentChange: EventEmitter<{
+        editor: any;
+        content: any;
+        text: string;
+        html: string;
+        delta: any;
+        oldDelta: any;
+        source: string;
+    }>;
+    @Event() editorSelectionChange: EventEmitter<{
+        editor: any;
+        range: any;
+        oldRange: any;
+        source: string;
+    }>;
+    @Event() editorFocus: EventEmitter<{
+        editor: any;
+        source: string;
+    }>;
+    @Event() editorBlur: EventEmitter<{
+        editor: any;
+        source: string;
+    }>;
 
-    /*@Event()
-    myEvent() {
-        // do something
-    }*/
+    /*@State() available : boolean = false;*/
 
     /*@Method()
     myMethod() {

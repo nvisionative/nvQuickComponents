@@ -97,7 +97,48 @@ declare namespace LocalJSX {
         "minLength"?: number;
         "modules"?: { [index: string]: Object };
         "onContentChanged"?: (event: CustomEvent<any>) => void;
+        "onEditorBlur"?: (event: CustomEvent<{
+        editor: any;
+        source: string;
+    }>) => void;
+        "onEditorChange"?: (event: CustomEvent<|   {
+                editor: any;
+                event: 'text-change';
+                content: any;
+                text: string;
+                html: string;
+                delta: any;
+                oldDelta: any;
+                source: string;
+            }
+        |   {
+                editor: any;
+                event: 'selection-change';
+                range: any;
+                oldRange: any;
+                source: string;
+            }>) => void;
+        "onEditorContentChange"?: (event: CustomEvent<{
+        editor: any;
+        content: any;
+        text: string;
+        html: string;
+        delta: any;
+        oldDelta: any;
+        source: string;
+    }>) => void;
         "onEditorCreated"?: (event: CustomEvent<any>) => void;
+        "onEditorFocus"?: (event: CustomEvent<{
+        editor: any;
+        source: string;
+    }>) => void;
+        "onEditorInit"?: (event: CustomEvent<any>) => void;
+        "onEditorSelectionChange"?: (event: CustomEvent<{
+        editor: any;
+        range: any;
+        oldRange: any;
+        source: string;
+    }>) => void;
         "onSelectionChanged"?: (event: CustomEvent<any>) => void;
         "placeholder"?: string;
         "preserveWhitespace"?: boolean;
